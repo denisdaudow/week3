@@ -1,0 +1,30 @@
+<apex:page controller="buy">
+    <apex:form >
+        <apex:actionFunction action="{!remove}" name="action" reRender="out">
+            <apex:param name="unitCount" value=""/>
+        </apex:actionFunction>
+    </apex:form>
+    <script>
+        function functio(val) {
+            action(val); 
+    </script>
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!product}" var="prod">
+                <apex:column >
+                    <apex:form >
+                    First Name:<br/><apex:inputText value="{!contact.firstName}"/><br/><br/>
+                    Last Name:<br/><apex:inputText value="{!contact.lastName}"/><br/><br/>
+                    E-mail:<br/><apex:inputText value="{!contact.email}"/><br/><br/>
+                    <apex:commandButton action="{!end}" value="Buy"/></apex:form>
+                </apex:column>
+                <apex:column >
+                    <apex:form >
+                    <apex:outputText >Product Name {!prod.Name}</apex:outputText><br/><br/>
+                    <apex:outputText >Cost {!prod.Unit_Price__c}</apex:outputText><br/><br/>
+                    <apex:outputText >Unit Count</apex:outputText><apex:inputText value="{!str}" onchange="functio(this.value)"/><br/><br/>
+                    <apex:outputText id="out">Total Amount {!str}</apex:outputText></apex:form>
+                 </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:form ><apex:commandButton action="{!toShop}" value="To Shopping"/></apex:form>
+</apex:page>

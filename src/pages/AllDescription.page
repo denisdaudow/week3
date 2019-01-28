@@ -1,0 +1,12 @@
+<apex:page controller="AllDescription">
+    <apex:pageBlock title="{!paramPage}">
+        <apex:pageBlockTable value="{!product}" var="prod">
+            <apex:column width="50%"><apex:image value="{!prod.Image_Url__c}" width="200" height="400"/></apex:column>
+            <apex:column width="50%"><apex:outputText >AMOUNT:<br/>{!prod.Units_Available__c}</apex:outputText><br/><br/><apex:outputText >TITLE:<br/>{!prod.Name}</apex:outputText><br/><br/>
+            <apex:outputText >DESCRIPTION:<br/>{!prod.Product_Description__c}<br/></apex:outputText></apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    <apex:pageBlock >
+        <apex:form ><apex:commandButton value="To Shopping" action="{!toShop}"/> <apex:commandButton action="{!buyProduct}" value="Buy"/></apex:form>
+    </apex:pageBlock>
+</apex:page>
